@@ -1,11 +1,11 @@
 # kevweatherone
 
-Add a short description here!
+Simple Python Weather Module.
 
 
 ## Description
 
-A longer description of your project goes here...
+Simple Python Weather Module playground to test some code.
 
 
 ## Note
