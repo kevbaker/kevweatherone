@@ -16,6 +16,7 @@ also be used as template for Python modules.
 Note: This index file can be safely removed if not needed!
 """
 
+from kevweatherone import theweather
 import argparse
 import sys
 import logging
@@ -30,6 +31,7 @@ _logger = logging.getLogger(__name__)
 
 def get_weather_by_zipcode(zipcode):
     print("sunny in ",zipcode)
+
 
 
 def fib(n):
@@ -64,10 +66,10 @@ def parse_args(args):
         action='version',
         version='kevweatherone {ver}'.format(ver=__version__))
     parser.add_argument(
-        dest="n",
-        help="n-th Fibonacci number",
-        type=int,
-        metavar="INT")
+        dest="l",
+        help="Location",
+        type=str,
+        metavar="STRING")
     parser.add_argument(
         '-v',
         '--verbose',
@@ -97,6 +99,7 @@ def setup_logging(loglevel):
 
 
 def main(args):
+# def main(location):
     """Main entry point allowing external calls
 
     Args:
@@ -104,9 +107,12 @@ def main(args):
     """
     args = parse_args(args)
     setup_logging(args.loglevel)
-    _logger.debug("Starting crazy calculations...")
+    # _logger.debug("Starting crazy calculations...")
     # print("The {}-th Fibonacci number is {}".format(args.n, fib(args.n)))
-    get_weather_by_zipcode("03861")
+    # get_weather_by_zipcode("03861")
+
+    print("get weather by location: ", args.l)
+    print(theweather.get_weather_by_location(args.l))
 
     _logger.info("Script ends here")
 
@@ -115,7 +121,7 @@ def run():
     """Entry point for console_scripts
     """
     main(sys.argv[1:])
-
+    # main('portsmouth, nh')
 
 if __name__ == "__main__":
     run()

@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 "e1839a8" = {editable = true, path = "."}
+pipenv = "*"
 
 [dev-packages]
 twine = "*"
